@@ -6,3 +6,8 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+    errors:
+      full_messages:
+        user:
+          email:
+            invalid: AAA@BBB.CCCのフォーマットで入力してください。
