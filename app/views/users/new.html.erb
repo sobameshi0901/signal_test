@@ -1,0 +1,16 @@
+<div class="form">
+  <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages' %>
+  <!-- @userを引数にする。新規登録の場合はUser.newされた状態で、編集の場合は登録済みのデータが既に入っている -->
+  <!-- 新規が登録済みかによって、遷移先のurlが create か updateに変更される。（今回は編集機能はない） -->
+    <p class="message">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
+    <%= f.label :email, "メールアドレス"%>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password, "パスワード" %>
+    <%= f.text_field :password %>
+    <%= f.submit "新規登録する",class: "send_button" %> 
+    <br>
+    <%= link_to "ログインはこちらから", login_path %>
+  <% end %>
+</div>

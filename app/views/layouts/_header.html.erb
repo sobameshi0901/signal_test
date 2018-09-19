@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="header-left">
+    <h2>LOGO</h2>
+  </div>
+   <div class="header-right">
+     <% if logged_in? %>
+       <ul>
+         <li>
+           <%= link_to "店舗情報登録", '#' %>
+         </li>
+         <li>
+           <%= link_to "店舗検索", '#' %>
+         </li>
+         <li>
+           <%= link_to "ログアウト", logout_path, method: :delete %>
+         </li>
+       </ul>
+    <% end %>
+   </div>
+</div>

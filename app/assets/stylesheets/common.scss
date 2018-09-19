@@ -1,0 +1,66 @@
+.header {
+  width: 100%;
+  height: 70px;
+  .header-left {
+    float: left;
+    // ロゴとリンクを横並びに
+    h2 {
+      padding-left: 50px;
+      font-size: 22px;
+    }
+  }
+  .header-right {
+    float: right;
+    height: 100%;
+    // 高さは全て100％でヘッダーいっぱいに。リンククリック時の高さを出すため。
+    ul {
+      height: 100%;
+      margin: 0;
+      li {
+        height: 100%;
+        width: 200px;
+        display: inline-block;
+        // 要素を横並びに
+        text-align: center;
+        // 真ん中に表示n
+        a {
+          display: block;
+          // 高さをだして全体がクリックできるように
+          height: 100%;
+          padding-top: 20px;
+          text-decoration: none;
+          // 下線は不要
+          color: black;
+          // 元の青文字から変更
+        }
+      }
+    }
+  }
+}
+
+.main {
+  padding:  60px 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}
+
+#error_explanation {
+  li{
+    list-style: none;
+    color: red;
+    font-weight: bold;
+  }
+}
+
+// アラートの表示
+.alert {
+  width: 100%;
+  font-weight: bold;
+}
+.alert-notice {
+  color: blue;
+}
+.alert-danger {
+  color: red;
+}
