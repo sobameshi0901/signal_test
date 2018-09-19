@@ -10,4 +10,8 @@ class ShopsController < ApplicationController
 
   def edit
   end
+
+  def search
+  end
+
 end
