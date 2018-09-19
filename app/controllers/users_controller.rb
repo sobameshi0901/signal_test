@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def new
+    @user = User.new
+    # form_for を使用するため、変数にUserインスタンスを代入。
   end
 
   def create
