@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       log_in user
       # sessionのヘルパーメソッドlog_inをuserを引数に実行。session[:user_id]にuser.idが保存される
       redirect_to new_user_url
+      # 変更よう
     else
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが一致しません'
       render 'new'
@@ -18,5 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to login_path
   end
 end
