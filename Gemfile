@@ -66,3 +66,4 @@ gem 'carrierwave'
 # デバッグ用
 gem 'pry-rails'
 gem 'pry-byebug'
+gem 'bcrypt'
