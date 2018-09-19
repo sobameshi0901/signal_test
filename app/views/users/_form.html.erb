@@ -1,0 +1,13 @@
+<div class="form">
+  <p class="message">メールアドレスとパスワードを入力し、ログインボタンを押下し、<br>ログインボタンを押下してください。</p>
+  <label for="email" >メールアドレス：</label>
+  <input type="text" name="email">
+  <br>
+  <label for="password">パスワード：</label>
+  <input type="text" name="input">
+  <br>
+  <button type="submit" name="action" value=""><%= send_message %></button>
+  <br>
+  <%= link_to "#{jump_message}", "#{jump_link}" %>
+</div>
+<!-- 基本のフォームはログイン・新規登録共通、localでそれぞれの値を渡す -->
