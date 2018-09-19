@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     # Userクラスのインスタンスを作成。引数にuser_paramsを入れることで、user_paramsのデータ(permitされたフォームから送られた情報)をインスタンスの変数として登録
     if @user.save
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。このDBで保存する際に、has_secure_passwordによってパスワードはハッシュ化される。
+      log_in @user
+      # @userを引数にsessionヘルパーのlog_inメソッドでlog_inする(session[:user_id]に保存)
+      flash[:notice] = "登録が完了しました"
     else
       render 'new'
       # 保存が失敗した場合には、エラーメッセージを表示。
