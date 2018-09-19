@@ -13,8 +13,14 @@ module SignalTest
 
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
-
     # エラーメッセージの日本語化
+
+    config.generators do |g|
+      g.javascripts false
+      g.helper false
+      g.test_framework false
+    end
+    # コントローラ作成時に不要ファイルを発生させない
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
