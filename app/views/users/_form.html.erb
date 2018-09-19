@@ -1,13 +1,22 @@
 <div class="form">
-  <p class="message">メールアドレスとパスワードを入力し、ログインボタンを押下し、<br>ログインボタンを押下してください。</p>
-  <label for="email" >メールアドレス：</label>
-  <input type="text" name="email">
-  <br>
-  <label for="password">パスワード：</label>
-  <input type="text" name="input">
-  <br>
-  <button type="submit" name="action" value=""><%= send_message %></button>
-  <br>
-  <%= link_to "#{jump_message}", "#{jump_link}" %>
-</div>
+  <%= form_for @user do |f| %>
+  <!-- @userを引数にする。新規登録の場合はUser.newされた状態で、編集の場合は登録済みのデータが既に入っている -->
+  <!-- 新規が登録済みかによって、遷移先のurlが create か updateに変更される。（今回は編集機能はない） -->
+    <p class="message">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  <!--   <label for="email" >メールアドレス：</label>
+    <input type="text" name="email"> -->
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  <!--   <label for="password">パスワード：</label>
+    <input type="text" name="input">
+    <br> -->
+  <!--   <button type="submit" name="action" value=""><%= send_message %></button> -->
+    <%= f.submit "#{send_message}",class: "send_button" %> 
+    <br>
+    <%= link_to "#{jump_message}", "#{jump_link}" %>
 <!-- 基本のフォームはログイン・新規登録共通、localでそれぞれの値を渡す -->
+  <% end %>
+</div>
