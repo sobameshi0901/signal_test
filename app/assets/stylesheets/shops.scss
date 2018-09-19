@@ -1,3 +1,22 @@
-// Place all the styles related to the shops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.shopLink {
+  margin: 150px 0;
+  ul {
+    width: 100%;
+    li {
+        display: inline-block;
+        // 要素を横並び
+        width: 40%;
+        // ウインドウのサイズによって変更
+      a {
+        margin: 0 auto;
+        width: 60%;
+        padding: 70px 0;
+        display: block;
+        // 高さ・横幅をだす
+        border :1px solid gray;
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
