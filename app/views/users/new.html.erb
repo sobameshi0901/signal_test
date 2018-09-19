@@ -8,7 +8,7 @@
     <%= f.text_field :email %>
     <br>
     <%= f.label :password, "パスワード" %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
     <%= f.submit "新規登録する",class: "send_button" %> 
     <br>
     <%= link_to "ログインはこちらから", login_path %>
