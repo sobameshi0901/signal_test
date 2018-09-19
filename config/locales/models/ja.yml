@@ -6,6 +6,9 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+      session:
+        email: メールアドレス
+        password: パスワード
     errors:
       full_messages:
         user:

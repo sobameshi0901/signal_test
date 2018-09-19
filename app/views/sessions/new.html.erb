@@ -2,10 +2,10 @@
   <%= form_for(:session, url:login_path) do |f| %>
   <!-- 新規登録と同じくform_forだが、sessionモデルは存在しないので、リソースの名前とそれに対応するURLを指定 -->
     <p class="message">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
-    <%= f.label :email %>
+    <%= f.label :email, "メールアドレス" %>
     <%= f.text_field :email %>
     <br>
-    <%= f.label :password %>
+    <%= f.label :password, "パスワード" %>
     <%= f.text_field :password %>
     <%= f.submit "ログインする",class: "send_button" %> 
     <br>
