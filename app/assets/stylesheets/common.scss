@@ -52,3 +52,15 @@
     font-weight: bold;
   }
 }
+
+// アラートの表示
+.alert {
+  width: 100%;
+  font-weight: bold;
+}
+.alert-notice {
+  color: blue;
+}
+.alert-danger {
+  color: red;
+}
