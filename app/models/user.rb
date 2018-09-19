@@ -10,8 +10,9 @@ class User < ApplicationRecord
   # のいずれかに当てはまるとfalseが帰ってきて、反映がされない。
 
   VALID_PASS_REGEX = /[\w]+/
-  validates :password, presence: true, format: {with: VALID_PASS_REGEX}
+  validates :password, presence: true, format: {with: VALID_PASS_REGEX}, allow_nil: true
   # 基本機能はemailと同じ
+  # allow_nil: true はnilでも問題なく通す。 nil の場合は下のhas_secure_passwordでnil: false のバリデーションが掛かっているため、こちらでもかけるとエラーメッセージが二重となるため。
 
   has_secure_password
   # 以下の機能が追加される
