@@ -44,3 +44,11 @@
   border-bottom: 1px solid gray;
   text-align: center;
 }
+
+#error_explanation {
+  li{
+    list-style: none;
+    color: red;
+    font-weight: bold;
+  }
+}
