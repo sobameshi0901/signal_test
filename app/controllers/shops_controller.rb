@@ -35,7 +35,9 @@ class ShopsController < ApplicationController
 
   def update
     if @shop.update(shop_params)
+      # 基本的にはcreateアクションと同じ。before_actionで@shopに代入されたインスタンスのプロパティをshop_paramsの内容に沿って更新。この時にもバリデーションが掛かる。
       redirect_to @shop
+      # showアクションへリダイレクト
       flash.now[:notice] = "店舗情報が更新されました"
     else
       render 'edit'
@@ -45,7 +47,7 @@ class ShopsController < ApplicationController
 
   def search
     @shops = Shop.where('name LIKE(?)', "%#{params[:keyword]}%").order(updated_at: "DESC")
-    # パラメータで送られてきた:keywordを引数にwhereメソッドでDBから検索。該当するレコードに対応するインスタンスを@shopsに配列の形で代入。
+    # パラメータで送られてきた:keywordを引数にwhereメソッドを利用しDBのレコードを検索。該当するレコードに対応するインスタンスを@shopsに配列の形で代入。
     # さらにorderメソッドを条件である更新日時の降順を引数として実行。配列の順番を並べ替える
     if @shops.empty?
       flash.now[:danger] = "該当する店舗はありません。別のキーワードで検索してください。"
@@ -71,6 +73,6 @@ class ShopsController < ApplicationController
     def user_login?
         redirect_to controller: 'sessions', action: 'new' unless logged_in?
     end
-    # sessionヘルパーのlogged_in?メソッドを使い、falseであればlogi_in画面へリダイレクトする
+    # sessionヘルパーのlogged_in?メソッドを使い、falseであれば（ログインしていなければ）ログイン画面へリダイレクトする
 
 end
