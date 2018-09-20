@@ -6,7 +6,10 @@
       <button type="submit" class="searchButton">検索</button>
   </div>
   <% if @shops.present? %>
+  <!-- present?メソッドで@shopsがあるか確認。true or falseで返ってくる -->
     <% @shops.each do |shop|%>
+    <!-- 配列型の@shopsにeachメソッドを使用し引数としてブロックを渡す。 -->
+    <!-- それぞれのインスタンスについてブロックの処理を行う -->
       <div class="shopLists">
         <div class="shopInfo clearfix">
           <div class="listLeft">
