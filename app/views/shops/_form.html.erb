@@ -2,6 +2,7 @@
     <%= form_for @shop do |f| %>
     <!-- userと同様、@shopが空のインスタンスか、既にDBに存在するインスタンスかを判断して、送信先を変更する -->
       <%= render partial:'shared/error_messages', locals:{ instance: @shop} %>
+      <!-- renderメソッド、取り出し元のviewのパスと取り出し元で使われる変数の定義を引数にしている。viewを返す -->
 
       <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
       <div class="inputForm clearfix">
