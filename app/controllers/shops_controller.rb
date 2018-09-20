@@ -30,7 +30,7 @@ class ShopsController < ApplicationController
   end
 
   def update
-    if @shop.save
+    if @shop.update(shop_params)
       redirect_to @shop
       flash[:notice] = "店舗情報が更新されました"
     else
