@@ -1,3 +1,9 @@
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .header {
   width: 100%;
   height: 70px;
@@ -75,12 +81,16 @@
 
   .inputForm {
     margin-bottom: 30px;
+    padding-left: 15%;
     label {
-      display: inline-block;
+      display: block;
+      float: left;
       width: 200px;
+
     }
     input {
-      display: inline-block;
+      display: block;
+      float: left;
       width: 50%;
       font-size: 18px;
       height: 50px;
@@ -88,6 +98,32 @@
     }
   }
   .fileForm {
+    label {
+      display: block;
+      height: 100%;
+      position: relative;
+      top: 15px;
+    }
+    input {
+      width: 50px;
+    }
+    .trimImage {
+      float: left;
+      overflow: hidden;
+      width: 100px;/* トリミング枠の幅 */
+      height: 100px;/* トリミング枠の高さ */
+      position: relative;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
+      }
+    }
   }
   .sendForm{
     margin: 30px auto;
