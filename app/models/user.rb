@@ -1,13 +1,15 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /[\w_-]+@[\w_-]+\.[\w_-]/
   # emailの形式確認用定数。半角英数字(大文字含)、"_"、"\"、"."のいずれかで@を挟んでいればOK
-  validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: true
-  # バリデーション用メソッド。引数に(:email, presence: true, format: {with VALID_EMAIL_REGEX}, uniqueness: true)をとる。
+  validates :email, presence: true,uniqueness: true
+  validates :email, format: {with: VALID_EMAIL_REGEX}, allow_blank: true
+  # バリデーション用メソッド。それぞれ第一引数に属性名を、それ以降の引数に条件にをとる。
   # レコードを作成・編集する際に
   # (1)emailが入力されていない
-  # (2)emailがVALID_EMAIL_REGEXの型になっていない
-  # (3)既に同じ emailが存在する
+  # (2)既に同じ emailが存在する
+  # (3)emailがVALID_EMAIL_REGEXの型になっていない
   # のいずれかに当てはまるとfalseが帰ってきて、反映がされない。
+  # :emailに対してvalidatesを２回行っているのは、空の場合に:presenceと:format両方のエラーメッセージが表示されるのを防ぐため
 
   VALID_PASS_REGEX = /[\w]+/
   validates :password, presence: true, format: {with: VALID_PASS_REGEX}, allow_nil: true
