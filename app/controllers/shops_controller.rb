@@ -1,4 +1,8 @@
 class ShopsController < ApplicationController
+  before_action :set_shop, only: [:edit, :update, :show]
+  # コントローラの処理を実行する前に決められたメソッドを実行。ここでは引数の:set_shopを使用し、@shopにインスタンスを代入
+
+
   def index
   end
 
@@ -7,12 +11,12 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    # form_forを使用する為、インスタンス変数にShopのインスタンス（中身は空）を代入
+    # form_forを使用する為、インスタンス変数@shopにShopのインスタンス（中身は空）を代入
   end
 
   def create
     @shop = Shop.new(shop_params)
-    # Shopクラスのインスタンスを作成。引数にshop_paramsを入れることで、このデータ（フォームから送られてきた情報を）インスタンスのプロパティとして登録
+    # Shopクラスのインスタンスを作成。引数にshop_paramsを入れることで、このデータ（フォームから送られてきた情報を）インスタンスのプロパティとして登録。@shopに代入
     if @shop.save
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。この時にバリデーションが行われる。
       redirect_to @shop
@@ -25,6 +29,17 @@ class ShopsController < ApplicationController
   def edit
   end
 
+  def update
+    @shop = shop.find(params[:id])
+    if @shop.save
+      redirect_to @shop
+      flash[:notice] = "店舗情報が更新されました"
+    else
+      render 'edit'
+    end
+  end
+
+
   def search
   end
 
@@ -36,6 +51,11 @@ class ShopsController < ApplicationController
         # ストロングパラメータで送られてきたパラメータのうち必要なものだけをハッシュ型で取得
       # まずはrequireで:shopを引数にすることで、パラメータのうち、:userというキーに入ったハッシュだけを返り値として取得
       # そのうちで登録に必要な:emailと:passwordを引数に、permitメソッドを利用し、{'name: 'ユーザー入力値', 'address: 'ユーザー入力値'....}というハッシュ形式で帰ってくる。
+    end
+
+    def set_shop
+      @shop = Shop.find(params[:id])
+      # url中のparams[:id]を引数にfindメソッドを実行。そのidを持ったShopのインスタンスを代入。viewに表示させる。
     end
 
 end
