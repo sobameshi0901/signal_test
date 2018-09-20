@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     # passwordが正しければ(フォームに入力されたpasswordを引数にauthenticateメソッドでハッシュ化し、userのpasswordと照合すれば)trueが返されif文はtrueとなる 
       log_in user
       # sessionのヘルパーメソッドlog_inをuserを引数に実行。session[:user_id]にuser.idが保存される
-      redirect_to new_user_url
-      # 変更よう
+      redirect_to controller: 'shops', action: 'index'
+      # リダイレクトメソッド, 遷移先のコントローラとアクションを引数。
     else
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが一致しません'
       render 'new'
