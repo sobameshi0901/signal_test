@@ -28,7 +28,8 @@
             <%= image_tag "#{@shop.image}" %>
           </div>
         <% end %>
-        <%= f.file_field :image %>
+        <%= f.label :image , "ファイルを選択", class: "fileButton" %>
+          <%= f.file_field :image, style: "display:none;"%>
       </div>
       <%= f.submit "#{send_message}", class: "sendForm" %>
       <!-- フォームは共通化し、送信ボタンのみ代入し変更 -->
