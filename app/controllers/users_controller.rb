@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       log_in @user
       # @userを引数にsessionヘルパーのlog_inメソッドでlog_inする(session[:user_id]に保存)
       flash[:notice] = "登録が完了しました"
+      redirect_to controller: 'shops', action: 'index'
+      # リダイレクトメソッド, 遷移先のコントローラとアクションを引数。
     else
       render 'new'
       # 保存が失敗した場合には、エラーメッセージを表示。

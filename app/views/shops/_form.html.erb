@@ -2,8 +2,9 @@
     <%= form_for @shop do |f| %>
     <!-- userと同様、@shopが空のインスタンスか、既にDBに存在するインスタンスかを判断して、送信先を変更する -->
       <%= render partial:'shared/error_messages', locals:{ instance: @shop} %>
+      <!-- renderメソッド、取り出し元のviewのパスと取り出し元で使われる変数の定義を引数にしている。viewを返す -->
 
-      <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
+      <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗<%= form_status %>ボタンを押下してください。</p>
       <div class="inputForm clearfix">
         <%= f.label :name, "店舗名："%>
         <%= f.text_field :name %>
@@ -27,9 +28,10 @@
             <%= image_tag "#{@shop.image}" %>
           </div>
         <% end %>
-        <%= f.file_field :image %>
+        <%= f.label :image , "ファイルを選択", class: "fileButton" %>
+          <%= f.file_field :image, style: "display:none;"%>
       </div>
-      <%= f.submit "#{send_message}", class: "sendForm" %>
-      <!-- フォームは共通化し、送信ボタンのみ代入し変更 -->
+      <%= f.submit "店舗#{form_status}", class: "sendForm" %>
+      <!-- フォームは共通化し、説明のメッセージ及び送信ボタンのみ代入し変更 -->
   <% end %>
 </div>

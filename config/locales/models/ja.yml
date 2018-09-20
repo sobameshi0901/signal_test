@@ -15,3 +15,13 @@ ja:
         name: 店舗名
         image: 店舗画像
         phone: 電話番号
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: はxxx@xxx.xxxの形式で入力してください
+        shop:
+          attributes:
+            email:
+              invalid: はxxx@xxx.xxxの形式で入力してください
