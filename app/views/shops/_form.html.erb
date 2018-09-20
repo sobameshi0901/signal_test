@@ -25,9 +25,14 @@
         <%= f.label :image, "店舗画像：" %>
         <% if @shop.image.present? %>
           <div class="trimImage">
-            <%= image_tag "#{@shop.image}" %>
+            <%= image_tag "#{@shop.image}", class: "reviewImage" %>
+          </div>
+        <% else %>
+        <div class="trimImage" style="display: none">
+            <%= image_tag "", class: "reviewImage"%>
           </div>
         <% end %>
+
         <%= f.label :image , "ファイルを選択", class: "fileButton" %>
           <%= f.file_field :image, style: "display:none;"%>
       </div>
