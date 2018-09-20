@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。この時にバリデーションが行われ、条件に当てはまらない場合はfalseとなり保存されない。このDBで保存する際に、has_secure_passwordによってパスワードがハッシュ化される。
       log_in @user
-      # @userを引数にsessionヘルパーのlog_inメソッドでlog_inする(session[:user_id]に保存)
+      # @userを引数にsessionヘルパーのlog_inメソッドでlog_inする(session[:user_id]に@user.idを保存)
       flash[:notice] = "登録が完了しました"
       redirect_to controller: 'shops', action: 'index'
       # リダイレクトメソッド, 遷移先のコントローラとアクションを引数。
