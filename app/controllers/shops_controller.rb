@@ -30,7 +30,6 @@ class ShopsController < ApplicationController
   end
 
   def update
-    @shop = shop.find(params[:id])
     if @shop.save
       redirect_to @shop
       flash[:notice] = "店舗情報が更新されました"

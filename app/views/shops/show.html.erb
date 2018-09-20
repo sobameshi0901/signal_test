@@ -1,2 +1,19 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<div class="shopDetail">
+  <div class="mainContents clearfix">
+    <div class="leftContent">
+      <div class="trimImage">
+        <%= image_tag "#{@shop.image} "%>
+      </div>
+    </div>
+    <div class="rightContent">
+      <%= link_to "#{@shop.name}" %>
+      <p>住所：<%= @shop.address %></p>
+      <p>電話番号：<%= @shop.phone %></p>
+      <p>メールアドレス：<%= @shop.email %></p>
+    </div>
+  </div>
+  <div class="editButton">
+    <%= link_to "店舗を更新する", edit_shop_path(@shop) %>
+    <!-- shopコントローラのeditアクションに対応するurlのid部分に@shopのidを入れたものになる -->
+  </div>
+</div>

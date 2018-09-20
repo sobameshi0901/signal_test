@@ -107,23 +107,6 @@
     input {
       width: 50px;
     }
-    .trimImage {
-      float: left;
-      overflow: hidden;
-      width: 100px;/* トリミング枠の幅 */
-      height: 100px;/* トリミング枠の高さ */
-      position: relative;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: auto;
-        height: 100%;
-      }
-    }
   }
   .sendForm{
     margin: 30px auto;
@@ -136,5 +119,24 @@
       cursor: pointer;
       opacity: 0.8;
     }
+  }
+}
+
+// サイズに合わせて画像をカット。使用する場所によって.trimageのサイズを変更する
+.trimImage {
+  float: left;
+  overflow: hidden;
+  width: 100px;/* トリミング枠の幅 */
+  height: 100px;/* トリミング枠の高さ */
+  position: relative;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;
   }
 }
