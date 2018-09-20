@@ -70,3 +70,6 @@ gem 'bcrypt'
 # パスワードのハッシュ化
 gem 'rails-i18n'
 # エラーメッセージの日本語化
+group :production do
+  gem 'unicorn'
+end
