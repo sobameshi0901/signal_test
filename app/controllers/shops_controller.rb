@@ -16,7 +16,7 @@ class ShopsController < ApplicationController
     if @shop.save
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。この時にバリデーションが行われる。
       redirect_to @shop
-      falsh[:notice] = "店舗情報が登録されました"
+      flash[:notice] = "店舗情報が登録されました"
     else
       render 'new'
     end
