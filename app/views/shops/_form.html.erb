@@ -1,0 +1,33 @@
+<div class="shopForm form">
+    <%= form_for @shop do |f| %>
+    <!-- userと同様、@shopが空のインスタンスか、既にDBに存在するインスタンスかを判断して、送信先を変更する -->
+      <%= render partial:'shared/error_messages', locals:{ instance: @shop} %>
+
+      <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
+      <div class="inputForm">
+        <%= f.label :name, "店舗名："%>
+        <%= f.text_field :name %>
+      </div>
+      <div class="inputForm">
+        <%= f.label :address, "住所：" %>
+        <%= f.text_field :address %>
+      </div>
+      <div class="inputForm">
+        <%= f.label :phone, "電話番号：" %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="inputForm">
+        <%= f.label :email, "メールアドレス：" %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="inputForm fileForm">
+        <%= f.label :image, "店舗画像：" %>
+        <% if @shop.image.present? %>
+          <%= image_tag "#{@shop.image}" %>
+        <% end %>
+        <%= f.file_field :image %>
+      </div>
+      <%= f.submit "#{send_message}", class: "sendForm" %>
+      <!-- フォームは共通化し、送信ボタンのみ代入し変更 -->
+  <% end %>
+</div>
