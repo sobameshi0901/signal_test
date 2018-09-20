@@ -20,9 +20,11 @@ class ShopsController < ApplicationController
     if @shop.save
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。この時にバリデーションが行われる。
       redirect_to @shop
+      # shopコントローラのshowメソッドに@shopのidを引数として渡すことで、リダイレクトする。
       flash.now[:notice] = "店舗情報が登録されました"
     else
       render 'new'
+      # 保存に失敗した場合にはそのままnewアクションのビューをrenderする。@shopの内容は保持しているので、そのままビューに表示される。
     end
   end
 
@@ -40,7 +42,13 @@ class ShopsController < ApplicationController
 
 
   def search
-    @shops = Shop.all
+    @shops = Shop.where('name LIKE(?)', "%#{params[:keyword]}%").order(updated_at: "DESC")
+    # パラメータで送られてきた:keywordを引数にwhereメソッドでDBから検索。該当するレコードに対応するインスタンスを@shopsに配列の形で代入。
+    # さらにorderメソッドを条件である更新日時の降順を引数として実行。配列の順番を並べ替える
+    if @shops.empty?
+      flash.now[:danger] = "該当する店舗はありません。別のキーワードで検索してください。"
+      # 該当するデータがなかった場合にはフラッシュメッセージを表示。
+    end
   end
 
   private
