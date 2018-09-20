@@ -1,14 +1,16 @@
-<div class="form">
+<div class="form userForm">
   <%= form_for(:session, url:login_path) do |f| %>
   <!-- 新規登録と同じくform_forだが、sessionモデルは存在しないので、リソースの名前とそれに対応するURLを指定 -->
-    <p class="message">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.text_field :email %>
-    <br>
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
-    <%= f.submit "ログインする",class: "send_button" %> 
-    <br>
-    <%= link_to "新規登録はこちらから", new_user_path %>
+    <p class="explain">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
+    <div class="inputForm">
+      <%= f.label :email, "メールアドレス"%>
+      <%= f.text_field :email %>
+    </div>
+    <div class="inputForm">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit "ログイン",class: "sendForm" %>
+    <%= link_to "新規登録はこちらから", new_user_path, class: "linkButton" %>
   <% end %>
 </div>
