@@ -16,5 +16,5 @@ Database creation
 |address|string|null: false|
 |phone|integer(limit:1)|null: false|
 |email|string||
-|image|string(limit:65535)||
+|image|string||
 

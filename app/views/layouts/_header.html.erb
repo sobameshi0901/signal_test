@@ -6,10 +6,10 @@
      <% if logged_in? %>
        <ul>
          <li>
-           <%= link_to "店舗情報登録", '#' %>
+           <%= link_to "店舗情報登録", new_shop_path %>
          </li>
          <li>
-           <%= link_to "店舗検索", '#' %>
+           <%= link_to "店舗検索", shops_search_path %>
          </li>
          <li>
            <%= link_to "ログアウト", logout_path, method: :delete %>

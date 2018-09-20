@@ -9,8 +9,9 @@ ja:
       session:
         email: メールアドレス
         password: パスワード
-    errors:
-      full_messages:
-        user:
-          email:
-            invalid: AAA@BBB.CCCのフォーマットで入力してください。
+      shop:
+        email: メールアドレス
+        address: 住所
+        name: 店舗名
+        image: 店舗画像
+        phone: 電話番号

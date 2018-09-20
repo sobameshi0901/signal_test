@@ -1,0 +1,123 @@
+.shopLink {
+  margin: 150px 0;
+  ul {
+    width: 100%;
+    li {
+        display: inline-block;
+        // 要素を横並び
+        width: 40%;
+        // ウインドウのサイズによって変更
+      a {
+        margin: 0 auto;
+        width: 60%;
+        padding: 70px 0;
+        display: block;
+        // 高さ・横幅をだす
+        border :1px solid gray;
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+.shopForm {
+  margin: 60px 0;
+}
+
+.shopDetail {
+  width: 100%;
+  .leftContent {
+    margin-left: 10%;
+    float: left;
+    .trimImage {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  .rightContent {
+    float: left;
+    text-align: left;
+    margin-left: 50px;
+    a {
+      font-size: 25px;
+      color: black;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 25px;
+      font-size: 18px;
+    }
+  }
+  .editButton {
+    a {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 50px;
+    padding: 15px 40px;
+    text-decoration: none;
+    background-color: #bdbdbd;
+    border-radius: 10px;
+    color:black;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  }
+}
+
+.searchShop {
+  width: 100%;
+  .searchBox {
+    .searchForm {
+      width: 60%;
+      height: 50px;
+      padding-left: 10px;
+    }
+    .searchButton {
+      margin-left: 20px;
+      height: 55px;
+      padding: 0 35px;
+      border-radius: 5px;
+      background-color: #bdbdbd;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+  .shopLists {
+    width: 80%;
+    margin: 80px auto 0;
+    .shopInfo {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 15px 30px;
+      border: 1px solid gray;
+      border-radius: 3px;
+      .listLeft {
+        float: left;
+        .trimImage {
+          height: 200px;
+          width: 300px;
+        }
+      }
+      .listRight {
+        float: left;
+        text-align: left;
+        margin-left: 30px;
+        a {
+          font-size: 25px;
+          font-weight: bold;
+          text-decoration: none;
+          color:black;
+        }
+        p {
+          margin-top: 20px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
