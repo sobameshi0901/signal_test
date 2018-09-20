@@ -40,6 +40,7 @@ class ShopsController < ApplicationController
 
 
   def search
+    @shops = Shop.all
   end
 
   private
