@@ -1,24 +1,27 @@
 <div class="shopForm form">
-  <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
-  <div class="inputForm">
-    <label for="name">店舗名：</label>
-    <input type="text">
-  </div>
-  <div class="inputForm">
-    <label for="name">住所：</label>
-    <input type="text">
-  </div>
-  <div class="inputForm">
-    <label for="name">電話番号：</label>
-    <input type="text">
-  </div>
-  <div class="inputForm">
-    <label for="name">メールアドレス：</label>
-    <input type="text">
-  </div>
-  <div class="inputForm fileForm">
-    <label for="name">店舗画像</label>
-    <input type="file">
-  </div>
-  <button type="submit" class="sendForm">店舗登録</button>
+    <%= form_for @shop do |f| %>
+    <!-- userと同様、@shopが空のインスタンスか、既にDBに存在するインスタンスかを判断して、送信先を変更する -->
+    <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
+    <div class="inputForm">
+      <%= f.label :name, "店舗名："%>
+      <%= f.text_field :name %>
+    </div>
+    <div class="inputForm">
+      <%= f.label :address, "住所：" %>
+      <%= f.text_field :address %>
+    </div>
+    <div class="inputForm">
+      <%= f.label :phone, "電話番号：" %>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="inputForm">
+      <%= f.label :email, "メールアドレス：" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="inputForm fileForm">
+      <%= f.label :image, "店舗画像：" %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "店舗登録", class: "sendForm" %>
+  <% end %>
 </div>
