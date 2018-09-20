@@ -1,6 +1,8 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:edit, :update, :show]
   # コントローラの処理を実行する前に決められたメソッドを実行。ここでは引数の:set_shopを使用し、@shopにインスタンスを代入
+  before_action :user_login?
+  # ユーザーがログインしていなければ閲覧・登録不可能
 
 
   def index
@@ -65,5 +67,10 @@ class ShopsController < ApplicationController
       @shop = Shop.find(params[:id])
       # url中のparams[:id]を引数にfindメソッドを実行。そのidを持ったShopのインスタンスを代入。viewに表示させる。
     end
+
+    def user_login?
+        redirect_to controller: 'sessions', action: 'new' unless logged_in?
+    end
+    # sessionヘルパーのlogged_in?メソッドを使い、falseであればlogi_in画面へリダイレクトする
 
 end
