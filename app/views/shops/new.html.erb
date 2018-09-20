@@ -1,29 +1,3 @@
-<div class="shopForm form">
-    <%= form_for @shop do |f| %>
-    <!-- userと同様、@shopが空のインスタンスか、既にDBに存在するインスタンスかを判断して、送信先を変更する -->
-      <%= render partial:'shared/error_messages', locals:{ instance: @shop} %>
-
-      <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗登録ボタンを押下してください。</p>
-      <div class="inputForm clearfix">
-        <%= f.label :name, "店舗名："%>
-        <%= f.text_field :name %>
-      </div>
-      <div class="inputForm clearfix">
-        <%= f.label :address, "住所：" %>
-        <%= f.text_field :address %>
-      </div>
-      <div class="inputForm clearfix">
-        <%= f.label :phone, "電話番号：" %>
-        <%= f.text_field :phone %>
-      </div>
-      <div class="inputForm clearfix">
-        <%= f.label :email, "メールアドレス：" %>
-        <%= f.text_field :email %>
-      </div>
-      <div class="inputForm fileForm clearfix">
-        <%= f.label :image, "店舗画像：" %>
-        <%= f.file_field :image %>
-      </div>
-      <%= f.submit "店舗登録", class: "sendForm" %>
-  <% end %>
-</div>
+<%= render partial: 'form', locals: {send_message: "店舗登録"} %> 
+      <!-- renderメソッドを使用。引数はviewファイルの場所とlocal -->
+      <!-- ここではrender元のsend_messageに店舗登録を代入 -->
