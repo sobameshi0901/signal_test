@@ -4,17 +4,16 @@ Database creation
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false, unique: true|
+|email|string|null: false, unique: true, specific_format|
 |password_digest|string|null: false|
-|remember_token|string||
 
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|address|string|null: false|
-|phone|integer(limit:1)|null: false|
-|email|string||
-|image|string||
+|name|string|null: false, unique: true|
+|address|string||
+|phone|string|null: false, length: 11|
+|email|string|specif_format|
+|image|string|null:false|
 
