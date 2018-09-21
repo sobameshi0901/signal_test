@@ -5,9 +5,11 @@
       <!-- renderメソッド、取り出し元のviewのパスと取り出し元で使われる変数の定義を引数にしている。viewを返す -->
 
       <p class="explain">店舗名、住所、電話番号、メールアドレスを入力し、<br>店舗<%= form_status %>ボタンを押下してください。</p>
+      <!-- form_statusの部分はページによって変更するため、変数化 -->
       <div class="inputForm clearfix">
         <%= f.label :name, "店舗名："%>
         <%= f.text_field :name %>
+      <!-- form_forによって特定のnameやidを持ったinputフォームやlabelが生成される -->
       </div>
       <div class="inputForm clearfix">
         <%= f.label :address, "住所：" %>
@@ -37,6 +39,5 @@
           <%= f.file_field :image, style: "display:none;"%>
       </div>
       <%= f.submit "店舗#{form_status}", class: "sendForm" %>
-      <!-- フォームは共通化し、説明のメッセージ及び送信ボタンのみ代入し変更 -->
   <% end %>
 </div>

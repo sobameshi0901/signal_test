@@ -13,12 +13,14 @@
     <%= render 'layouts/header' %>
     <div class="main">
       <% flash.each do |key, value| %>
+      <!-- 配列となっているフラッシュメッセージを取り出す -->
        <div class="alert alert-<%= key %>">
+     <!-- フラッシュメッセージを表示 -->
         <%= value %>
        </div>
       <% end %>
-     <!-- フラッシュメッセージを表示 -->
       <%= yield %>
+      <!-- ここにメイン部分のビューを表示 -->
     </div>
     <div class="footer"></div>
   </body>

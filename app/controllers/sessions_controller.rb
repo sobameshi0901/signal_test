@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
+  # ログインページを表示
   def new
   end
 
+  # ログイン処理
   def create
     user = User.find_by(email: params[:session][:email])
     # フォームから送られてきたパラメータの情報(:email)を引数にfind_byメソッドを行い、返ってきたUserのインスタンスをuserに代入
@@ -19,6 +21,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ログアウト処理
   def destroy
     log_out
     # session[:user_id]を削除する

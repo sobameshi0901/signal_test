@@ -1,12 +1,13 @@
 <div class="userForm form">
   <%= form_for @user do |f| %>
     <%= render partial:'shared/error_messages', locals: {instance: @user} %>
-  <!-- @userを引数にする。新規登録の場合はUser.newされた状態で、編集の場合は登録済みのデータが既に入っている -->
-  <!-- 新規が登録済みかによって、遷移先のurlが create か updateに変更される。（今回は編集機能はない） -->
+  <!-- @userを引数にする。新規登録の場合はUser.newされた状態で、編集の場合はプロパティが既に入っている -->
+  <!-- 新規か登録済みかによって、遷移先のurlが create か updateに変更される。（今回は編集機能はない） -->
     <p class="explain">メールアドレスとパスワードを入力し、<br>ログインボタンを押下してください。</p>
     <div class="inputForm clearfix">
       <%= f.label :email, "メールアドレス"%>
       <%= f.text_field :email %>
+      <!-- form_forによって特定のnameやidを持ったinputフォームやlabelが生成される -->
     </div>
     <div class="inputForm clearfix">
       <%= f.label :password, "パスワード" %>

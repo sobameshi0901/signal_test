@@ -4,15 +4,19 @@
   </div>
    <div class="header-right">
      <% if logged_in? %>
+     <!-- session_helperのメソッドを使用し。ユーザーのログイン有無を確認。ログイン済みの場合のみ以下のビューを表示 -->
        <ul>
          <li>
            <%= link_to "店舗情報登録", new_shop_path %>
+           <!-- aタグを作成する、第一引数で表示名を、第二引数で遷移先を指定 -->
          </li>
          <li>
            <%= link_to "店舗検索", shops_search_path %>
+           <!-- aタグを作成する、第一引数で表示名を、第二引数で遷移先を指定 -->
          </li>
          <li>
            <%= link_to "ログアウト", logout_path, method: :delete %>
+           <!-- aタグを作成する、第一引数で表示名を、第二引数で遷移先、第三引数でメソッドを指定 -->
          </li>
        </ul>
     <% end %>

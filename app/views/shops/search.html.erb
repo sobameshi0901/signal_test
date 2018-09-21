@@ -9,11 +9,12 @@
   <!-- present?メソッドで@shopsがあるか確認。true or falseで返ってくる -->
     <% @shops.each do |shop|%>
     <!-- 配列型の@shopsにeachメソッドを使用し引数としてブロックを渡す。 -->
-    <!-- それぞれのインスタンスについてブロックの処理を行う -->
+    <!-- 配列に入っているそれぞれのインスタンス(shop)についてブロック処理を行う -->
       <div class="shopLists">
         <div class="shopInfo clearfix">
           <div class="listLeft">
           <%= link_to shop_path(shop) do%>
+           <!-- aタグを作成する -->
             <div class="trimImage">
               <%= image_tag "#{shop.image}" %>
             </div>
@@ -21,6 +22,7 @@
           </div>
           <div class="listRight">
             <%= link_to "#{shop.name}", shop_path(shop) %>
+           <!-- aタグを作成する、第一引数で表示名を、第二引数で遷移先を指定 -->
             <p>住所：<%= shop.address %></p>
             <p>電話番号：<%= shop.phone %></p>
           </div>

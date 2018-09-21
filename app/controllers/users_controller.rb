@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  # ユーザー新規登録ページを表示
   def new
     @user = User.new
     # form_for を使用するため、変数に中身が空のUserインスタンスを代入。
   end
 
+  # ユーザー新規登録の処理
   def create
     @user  = User.new(user_params)
     # Userクラスのインスタンスを作成。引数にuser_paramsを入れることで、user_paramsのデータ(permitされたフォームから送られた情報)をインスタンスのプロパティとして登録
@@ -22,8 +24,9 @@ class UsersController < ApplicationController
     end
   end
 
-  private
   # このクラス内部からのみ使用可能なprivateメソッドの定義
+  private
+    # ストロングパラーメーターを定義
     def user_params
       params.require(:user).permit(:email, :password)
       # ストロングパラメータで、送られてきたパラメータのうち必要な:emailと:passwordのみを許可、ハッシュ型で取得
