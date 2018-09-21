@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       # sessionのヘルパーメソッドlog_inをuserを引数に実行。session[:user_id]にuser.idが保存される
       redirect_to controller: 'shops', action: 'index'
       # リダイレクトメソッド, 遷移先のコントローラとアクションを引数。
+      flash[:notice] = "ログインに成功しました"
     else
       # ユーザーのアドレスとパスワードが合致せずfalseとなった場合
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが一致しません'

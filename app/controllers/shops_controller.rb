@@ -30,7 +30,7 @@ class ShopsController < ApplicationController
       # 上で作成して情報を登録したインスタンスをsaveメソッドでDBに保存。この時にバリデーションが行われ、条件に当てはまらない場合はfalseとなり、保存がされない。
       redirect_to @shop
       # shopコントローラのshowメソッドに@shopのidを引数として渡し、リダイレクトする。
-      flash.now[:notice] = "店舗情報が登録されました"
+      flash[:notice] = "店舗情報が登録されました"
       # フラッシュメッセージを表示
     else
       render 'new'
@@ -50,7 +50,7 @@ class ShopsController < ApplicationController
       # 基本的にはcreateアクションと同じ。before_actionで@shopに代入されたインスタンスのプロパティをshop_paramsの内容に沿って更新。この時にもバリデーションが掛かる。
       redirect_to @shop
       # showアクションへリダイレクト
-      flash.now[:notice] = "店舗情報が更新されました"
+      flash[:notice] = "店舗情報が更新されました"
     else
       render 'edit'
       # editのビューをレンダー。@shopの内容は保持しているので、そのままビューに表示される。
